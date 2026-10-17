@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mihai Catrinar | Experiences that build human capability</title>
+<meta name="description" content="One inquiry, three laboratories: Education, Outdoor Joy and Embodiment. Mihai Catrinar designs experiences that build human capability. Experience, insight, capability, transfer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3f2f2;
+    --bg-hover:#eae8e7;
+    --ink:#201e1d;
+    --red:#ec3013;
+    --text:#3d3a38;
+    --rule:2px solid #201e1d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Archivo",Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.8}
+  ::selection{background:var(--red);color:#fff}
+  a{color:var(--ink);text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
+  a:hover{color:var(--red)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1200px;margin:0 auto;padding-left:5vw;padding-right:5vw}
+  section{scroll-margin-top:70px}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+  .h2{font-size:clamp(32px,4.5vw,56px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1.02}
+  .lede{font-size:16px;line-height:1.8;color:var(--text);max-width:58ch}
+
+  .fx{opacity:0;transform:perspective(900px) translateY(34px) rotateX(7deg);transform-origin:top center;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .fx.in{opacity:1;transform:perspective(900px) translateY(0) rotateX(0)}
+  .fx.d1{transition-delay:.1s}.fx.d2{transition-delay:.2s}.fx.d3{transition-delay:.3s}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .fx{opacity:1;transform:none}
+  }
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--red);z-index:120}
+
+  /* ---------- Text FX ---------- */
+  .lt{display:inline-block;transition:transform .3s cubic-bezier(.2,.7,.2,1),color .3s ease;transform-origin:bottom center}
+  .lt:hover{transform:translateY(-.12em) rotate(-6deg) scale(1.06);color:var(--red);-webkit-text-stroke:0}
+  .wline{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+  .wtxt{display:inline-block;transform:translateY(115%);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .fx.in .wtxt{transform:none}
+  .roll{position:relative;display:inline-block;overflow:hidden;vertical-align:top}
+  .roll .r{display:block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .roll .r2{position:absolute;left:0;top:100%;color:var(--red)}
+  a:hover .roll .r,.btn:hover .roll .r,.chip:hover .roll .r,.path:hover .roll .r{transform:translateY(-100%)}
+  .btn-primary:hover .roll .r2,.chip:hover .roll .r2,.path:hover .roll .r2{color:#fff}
+  .tilt{will-change:transform;transition:transform .3s ease}
+  @media (hover:none){.tilt{transition:none}}
+
+  /* ---------- Nav ---------- */
+  .nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:var(--rule)}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding:16px 5vw}
+  .brand{font-weight:900;font-size:15px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+  .brand span{color:var(--red)}
+  .nav-links{display:flex;flex-wrap:wrap;gap:6px 24px;margin-left:auto;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;list-style:none;align-items:center}
+  .nav-links a{text-decoration:none}
+  .nav .cta{background:var(--red);color:#fff;padding:10px 18px;font-weight:800;text-decoration:none;transition:background .2s ease}
+  .nav .cta:hover{background:var(--ink);color:#fff}
+  @media (max-width:760px){.nav-links li:nth-child(n+4):not(:last-child){display:none}}
+
+  /* ---------- Hero ---------- */
+  header#home{border-bottom:var(--rule)}
+  .hero-top{max-width:1200px;margin:0 auto;padding:clamp(66px,10vh,130px) 5vw clamp(50px,7vh,90px)}
+  .hero-top h1{font-size:clamp(44px,8.6vw,118px);line-height:.94;font-weight:900;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:34px;max-width:14ch}
+  .hero-top h1 .out{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+  .hero-split{border-top:var(--rule);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .hero-photo{position:relative;min-height:420px;overflow:hidden}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s ease}
+  .hero-photo:hover img{filter:grayscale(0)}
+  .hero-side{border-left:var(--rule);padding:clamp(44px,6vw,80px) 5vw;display:flex;flex-direction:column;gap:28px;justify-content:center}
+  @media (max-width:700px){.hero-side{border-left:none;border-top:var(--rule)}}
+  .opener{font-size:16px;line-height:1.9;color:var(--text)}
+  .opener b{color:var(--ink);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+  .chainline{font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.08em}
+  .chainline i{font-style:normal;color:var(--red)}
+  .btn{display:inline-block;padding:16px 28px;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,color .2s ease,transform .15s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--ink);color:#fff}
+  .btn-ghost{border:var(--rule);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  .mq{border-bottom:var(--rule);background:var(--red);overflow:hidden;padding:14px 0}
+  .mq .track{display:flex;width:max-content;animation:slide 24s linear infinite}
+  .mq span{font-weight:900;text-transform:uppercase;white-space:nowrap;font-size:clamp(16px,2vw,22px);letter-spacing:.08em;color:#fff;padding:0 .6em}
+  .mq span i{font-style:normal;color:var(--ink)}
+
+  /* ---------- Doors ---------- */
+  .doors{border-bottom:var(--rule);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .door{position:relative;min-height:520px;display:flex;align-items:flex-end;text-decoration:none;overflow:hidden;border-right:var(--rule)}
+  .door:last-child{border-right:none}
+  @media (max-width:920px){.door{border-right:none;border-bottom:var(--rule)}.door:last-child{border-bottom:none}}
+  .door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s ease,transform .8s ease}
+  .door:hover img{filter:grayscale(0);transform:scale(1.04)}
+  .door::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(32,30,29,0) 35%,rgba(32,30,29,.86))}
+  .door .tx{position:relative;z-index:2;padding:30px 28px 34px;color:#fff}
+  .door .n{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+  .door h3{font-size:clamp(28px,3vw,40px);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin:6px 0 4px}
+  .door .mantra{font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+  .door .list{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#cfc9c5;margin-top:6px}
+
+  /* ---------- Sections ---------- */
+  .sec{border-bottom:var(--rule)}
+  .pad{padding-top:clamp(70px,10vh,120px);padding-bottom:clamp(70px,10vh,120px)}
+  .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:56px}
+
+  .four{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--ink);border:var(--rule);margin-top:56px}
+  .cell{background:var(--bg);padding:0 0 22px}
+  .cell .ph{position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:var(--rule)}
+  .cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);cursor:zoom-in;transition:filter .5s ease,transform .7s ease}
+  .cell:hover img{filter:grayscale(0);transform:scale(1.05)}
+  .cell .tx{padding:18px 20px 0}
+  .cell .n{font-weight:900;color:var(--red);font-size:14px}
+  .cell h3{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin:4px 0 6px}
+  .cell p{font-size:13.5px;line-height:1.65;color:var(--text)}
+
+  .routes{display:flex;flex-wrap:wrap;gap:14px;margin-top:48px}
+  .route{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:var(--rule);color:var(--ink);padding:12px 22px;text-decoration:none;transition:background .2s ease,color .2s ease}
+  .route:hover{background:var(--ink);color:#fff}
+
+  /* ---------- Ideas rows ---------- */
+  .rows{display:flex;flex-direction:column;border-top:var(--rule);margin-top:10px}
+  .row{display:grid;grid-template-columns:120px minmax(0,2fr) minmax(0,1.4fr) auto;gap:16px 32px;align-items:baseline;padding:32px 8px;border-bottom:var(--rule);text-decoration:none;transition:background .25s ease,padding .25s ease}
+  a.row:hover{background:var(--bg-hover);padding-left:20px}
+  .row .yr{font-size:13px;font-weight:700;color:var(--red);letter-spacing:.08em;text-transform:uppercase}
+  .row .ti{font-size:clamp(18px,2vw,23px);font-weight:800;line-height:1.25;color:var(--ink)}
+  .row .bl{font-size:14px;line-height:1.6;color:var(--text)}
+  .row .kind{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--ink);transition:color .25s ease,transform .25s ease}
+  a.row:hover .kind{color:var(--red);transform:translateX(6px)}
+  @media (max-width:800px){.row{grid-template-columns:100px 1fr}.row .bl{grid-column:2}.row .kind{grid-column:2}}
+
+  .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:52px}
+  .proof figure{margin:0}
+  .proof .ph{position:relative;aspect-ratio:16/10;overflow:hidden;border:var(--rule)}
+  .proof img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .7s ease}
+  .proof figure:hover img{transform:scale(1.04)}
+  .proof figcaption{padding:12px 0 0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+  /* ---------- Red band (Outdoor why) ---------- */
+  .band{border-bottom:var(--rule);background:var(--red);color:#fff}
+  .band .inner{max-width:1200px;margin:0 auto;padding:clamp(76px,11vh,140px) 5vw}
+  .band .eyebrow{color:#fff}
+  .band h2{font-size:clamp(38px,6.6vw,88px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.96;margin-bottom:26px}
+  .band .lede{color:#fff;max-width:56ch;margin-bottom:0}
+  .band .chainline{margin-top:30px;color:#fff}
+  .band .chainline i{color:var(--ink)}
+
+  /* ---------- Full-bleed hero image rows ---------- */
+  .strip{position:relative;min-height:54vh;overflow:hidden;border-bottom:var(--rule);display:flex;align-items:flex-end}
+  .strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .strip::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(32,30,29,.05) 40%,rgba(32,30,29,.8))}
+  .strip .tx{position:relative;z-index:2;color:#fff;padding:30px 5vw 38px;max-width:900px}
+  .strip h2{font-size:clamp(30px,5.4vw,66px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:#fff}
+  .strip p{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--red);margin-bottom:8px}
+
+  /* ---------- Elements / audiences ---------- */
+  .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--ink);border:var(--rule)}
+  .el{position:relative;aspect-ratio:4/5;display:block;overflow:hidden;text-decoration:none;background:var(--bg)}
+  .el img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s ease,transform .8s ease}
+  .el:hover img{filter:grayscale(0);transform:scale(1.05)}
+  .el::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(32,30,29,0) 45%,rgba(32,30,29,.85))}
+  .el .tx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px;color:#fff}
+  .el h3{font-size:26px;font-weight:900;text-transform:uppercase;color:#fff}
+  .el p{font-size:13px;letter-spacing:.06em;color:#dcd7d3}
+  .el .k{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+
+  /* ---------- Insights ---------- */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 40px}
+  .filter{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:var(--rule);background:var(--bg);color:var(--ink);padding:9px 16px;cursor:pointer;transition:background .2s ease,color .2s ease}
+  .filter:hover{background:var(--bg-hover)}
+  .filter.on{background:var(--ink);color:#fff}
+  .ins-list{list-style:none;border-top:var(--rule)}
+  .ins-list li{border-bottom:var(--rule)}
+  .ins-list li.hide{display:none}
+  .ins-list a,.ins-list .noL{display:flex;justify-content:space-between;gap:24px;align-items:baseline;padding:22px 8px;text-decoration:none;color:var(--ink);transition:background .25s ease,padding .25s ease}
+  .ins-list a:hover{background:var(--bg-hover);padding-left:20px}
+  .ins-list .t{font-weight:700;font-size:17px}
+  .ins-list a:hover .t{color:var(--red)}
+  .ins-list .wh{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text);white-space:nowrap}
+  @media (max-width:640px){.ins-list a,.ins-list .noL{flex-direction:column;gap:4px}.ins-list .wh{white-space:normal}}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:minmax(260px,389px) 1fr;gap:60px;align-items:center}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .about-grid .photo{display:flex;justify-content:center}
+  .about-grid .photo img{width:100%;max-width:389px;height:auto;border:var(--rule);filter:grayscale(1);transition:filter .6s ease}
+  .about-grid .photo:hover img{filter:grayscale(0)}
+  .about-copy{display:flex;flex-direction:column;gap:22px;color:var(--text)}
+  .about-copy .big{font-size:clamp(20px,2.4vw,28px);font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.01em;line-height:1.3}
+  .about-copy .q{font-size:clamp(19px,2.2vw,26px);font-weight:900;color:var(--red);text-transform:uppercase}
+  .cred{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);border:var(--rule)}
+  @media (max-width:640px){.cred{grid-template-columns:1fr}}
+  .cred div{background:var(--bg);padding:18px 20px;font-size:13.5px;line-height:1.6;color:var(--text)}
+  .cred div b{display:block;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+  .award{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:center;border:var(--rule);padding:26px;margin-top:52px;background:#fff}
+  @media (max-width:720px){.award{grid-template-columns:1fr}}
+  .award img{border:1px solid var(--ink);cursor:zoom-in}
+  .award h3{font-size:20px;font-weight:900;text-transform:uppercase;margin-bottom:8px}
+  .award p{font-size:14px;color:var(--text)}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink);color:var(--bg)}
+  .contact .inner{max-width:1200px;margin:0 auto;padding:clamp(86px,12vh,150px) 5vw}
+  .contact .eyebrow{color:var(--red)}
+  .contact h2{font-size:clamp(42px,8.6vw,112px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;margin-bottom:28px}
+  .contact h2 .out{color:transparent;-webkit-text-stroke:2px var(--red)}
+  .contact p{max-width:52ch;font-size:16px;line-height:1.8;color:#c9c5c2;margin-bottom:40px}
+  .paths{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+  .path{display:inline-block;padding:13px 24px;border:2px solid #4a4644;color:var(--bg);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:border-color .2s ease,background .2s ease,color .2s ease}
+  .path:hover{border-color:var(--red);background:var(--red);color:#fff}
+  .chips{display:flex;flex-wrap:wrap;gap:14px}
+  .chip{display:inline-block;padding:12px 22px;color:#c9c5c2;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;transition:color .2s ease,border-color .2s ease}
+  .chip:hover{color:#fff;border-color:var(--red)}
+  footer{background:var(--ink);color:#8b8683;border-top:2px solid #4a4644;font-size:13px}
+  footer .inner{max-width:1200px;margin:0 auto;padding:26px 5vw;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a{color:#c9c5c2;text-decoration-color:var(--red)}
+  footer a:hover{color:#fff}
+
+  /* ---------- Explorable gallery ---------- */
+  .gx{position:fixed;inset:0;background:#131110;display:none;z-index:140}
+  .gx.open{display:flex}
+  .gx-panel{display:flex;flex-direction:column;height:100%;width:100%}
+  .gx-head{display:flex;align-items:center;gap:20px;padding:16px 5vw;border-bottom:2px solid #3a3634;color:#f3f2f2}
+  #gx-world{font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:14px}
+  #gx-count{margin-left:auto;font-weight:900;color:var(--red);font-size:18px}
+  #gx-close{border:2px solid #3a3634;background:transparent;color:#f3f2f2;width:40px;height:40px;font-size:20px;cursor:pointer;transition:border-color .2s ease,color .2s ease,transform .2s ease}
+  #gx-close:hover{border-color:var(--red);color:var(--red);transform:rotate(90deg)}
+  .gx-stage{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;padding:16px 3vw}
+  .gx-stage figure{height:100%;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+  #gx-img{max-width:100%;max-height:calc(100% - 96px);border:2px solid #f3f2f2;opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease}
+  #gx-img.swap{opacity:0;transform:scale(.985)}
+  .gx-stage figcaption{text-align:center;color:#f3f2f2}
+  #gx-title{font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(17px,2vw,24px)}
+  #gx-msg{color:#b5afab;font-size:14px;max-width:62ch;margin:4px auto 0}
+  #gx-prev,#gx-next{border:2px solid #3a3634;background:transparent;color:#f3f2f2;width:52px;height:52px;font-size:22px;font-weight:900;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .15s ease}
+  #gx-prev:hover,#gx-next:hover{background:var(--red);border-color:var(--red);transform:scale(1.06)}
+  .gx-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));grid-auto-rows:70px;grid-auto-flow:dense;gap:4px;padding:14px 5vw 18px;overflow-y:auto;max-height:26vh;border-top:2px solid #3a3634}
+  .gx-th{position:relative;border:0;padding:0;overflow:hidden;cursor:pointer;background:#1d1a19}
+  .gx-th.big{grid-column:span 2;grid-row:span 2}
+  .gx-th img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);opacity:.6;transition:filter .3s ease,opacity .3s ease,transform .3s ease}
+  .gx-th:hover img{filter:grayscale(0);opacity:1;transform:scale(1.05)}
+  .gx-th.on img{filter:grayscale(0);opacity:1}
+  .gx-th.on{outline:3px solid var(--red);outline-offset:-3px}
+  .explore{display:inline-flex;align-items:center;gap:12px;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;border:var(--rule);background:transparent;color:var(--ink);padding:15px 26px;cursor:pointer;text-decoration:none;transition:background .2s ease,color .2s ease}
+  .explore:hover{background:var(--red);border-color:var(--red);color:#fff}
+  .explore i{font-style:normal;color:var(--red)}
+  .explore:hover i{color:#fff}
+  .explore-row{margin-top:48px}
+
+  /* ---------- Recognition overlay ---------- */
+  .recog{position:fixed;inset:0;background:rgba(19,17,16,.97);display:none;align-items:center;justify-content:center;z-index:150;padding:22px}
+  .recog.open{display:flex}
+  .recog-panel{position:relative;background:var(--bg);border:var(--rule);max-width:660px;width:100%;max-height:92vh;overflow-y:auto;padding:40px 36px}
+  .recog-k{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+  .recog-panel h3{font-size:24px;font-weight:900;text-transform:uppercase;margin-bottom:10px}
+  .recog-p{color:var(--text);font-size:14px;margin-bottom:20px}
+  .recog-panel img{border:var(--rule)}
+  #recog-close{position:absolute;top:14px;right:14px;border:var(--rule);background:var(--bg);color:var(--ink);width:38px;height:38px;font-size:19px;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
+  #recog-close:hover{background:var(--red);border-color:var(--red);color:#fff;transform:rotate(90deg)}
+
+
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="#home">Mihai Catrinar<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#education">Education</a></li>
+      <li><a href="#outdoor">Outdoor Joy</a></li>
+      <li><a href="#embodiment">Embodiment</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a class="cta" href="#work">Work with me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="home">
+  <div class="hero-top">
+    <div class="eyebrow fx in">One inquiry / Three laboratories</div>
+    <h1 class="fx in"><span class="ln" data-split>Human</span><br><span class="ln out" data-split>capability</span></h1>
+    <p class="lede fx in d1" style="font-size:clamp(19px,2.3vw,27px);font-weight:600;max-width:34ch;line-height:1.4">I design experiences that build human capability.</p>
+  </div>
+  <div class="hero-split">
+    <div class="hero-photo tilt"><img src="assets/home-hero.jpg" alt="Family facing a waterfall together"></div>
+    <div class="hero-side">
+      <p class="opener fx in d1">We know more than ever. <b>But knowing is not enough.</b> We need to transfer what we know. Adapt when the context changes. Regulate ourselves. Connect with others. Move. Experience.</p>
+      <p class="chainline fx in d2">Experience <i>&rarr;</i> Insight <i>&rarr;</i> Capability <i>&rarr;</i> Transfer</p>
+      <div class="fx in d2" style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="#work" class="btn btn-primary">Work with me</a>
+        <a href="#education" class="btn btn-ghost">Enter the three worlds</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mq" aria-hidden="true">
+  <div class="track">
+    <span>Ideas are understood <i>/</i> Experiences are lived <i>/</i> Capabilities travel <i>/</i> Learn. Experience. Reflect. Transfer. <i>/</i></span>
+    <span>Ideas are understood <i>/</i> Experiences are lived <i>/</i> Capabilities travel <i>/</i> Learn. Experience. Reflect. Transfer. <i>/</i></span>
+  </div>
+</div>
+
+<div class="doors">
+  <a class="door" href="#education">
+    <img src="assets/ed-hero.jpg" alt="">
+    <div class="tx"><span class="n">01</span><h3>Education</h3><p class="mantra">Understand. Transfer. Transform.</p><p class="list">Teaching / Instructional coaching / Consulting</p></div>
+  </a>
+  <a class="door" href="#outdoor">
+    <img src="assets/oj-hero.jpg" alt="">
+    <div class="tx"><span class="n">02</span><h3>Outdoor Joy</h3><p class="mantra">Experience. Connect. Become.</p><p class="list">Students / Companies / Groups and individuals</p></div>
+  </a>
+  <a class="door" href="#embodiment">
+    <img src="assets/em-hero.jpg" alt="">
+    <div class="tx"><span class="n">03</span><h3>Embodiment</h3><p class="mantra">Move. Regulate. Discover.</p><p class="list">Training / Neuroscience / Stories and insights</p></div>
+  </a>
+</div>
+
+<section id="education" class="sec">
+  <div class="wrap pad">
+    <div class="eyebrow fx">01 / Education</div>
+    <h2 class="h2 fx" style="margin-bottom:22px">Learning that travels</h2>
+    <p class="lede fx">Movement is the Trojan Horse. A game, a challenge, a problem worth solving: a meaningful experience gets learners through the door. Inside the experience we hide something deeper, concepts. Then we change the context and ask: can you use what you understood somewhere else? That is transfer.</p>
+    <div class="four">
+      <article class="cell fx"><div class="ph tilt"><img src="assets/ed-agency.jpg" alt="Learners choosing how to approach a task" data-g="edu" data-gi="1"></div><div class="tx"><span class="n">i.</span><h3>Experience opens the door</h3><p>Relevant, meaningful experiences invite every learner in.</p></div></article>
+      <article class="cell fx d1"><div class="ph tilt"><img src="assets/ed-concepts.jpg" alt="Students making meaning with concepts" data-g="edu" data-gi="2"></div><div class="tx"><span class="n">ii.</span><h3>Concepts create meaning</h3><p>Inside the experience, concepts help learners make sense of what is happening.</p></div></article>
+      <article class="cell fx d2"><div class="ph tilt"><img src="assets/ed-inquiry.jpg" alt="Student inquiry in action" data-g="edu" data-gi="3"></div><div class="tx"><span class="n">iii.</span><h3>Understanding travels</h3><p>We change the context, the challenge or the environment, and understanding moves with the learner.</p></div></article>
+      <article class="cell fx d3"><div class="ph tilt"><img src="assets/ed-capabilities.jpg" alt="Student voice showing what remains" data-g="edu" data-gi="4"></div><div class="tx"><span class="n">iv.</span><h3>Capabilities remain</h3><p>Long after the unit ends, the capability stays. That is learning worth designing.</p></div></article>
+    </div>
+    <div class="routes fx">
+      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Instructional%20coaching">Instructional coaching</a>
+      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Professional%20learning">Professional learning</a>
+      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Consulting">Consulting</a>
+      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Speaking%20and%20workshops">Speaking and workshops</a>
+    </div>
+    <div class="explore-row fx"><button class="explore" data-g="edu" data-gi="0">Explore the Education gallery <i>&rarr;</i></button></div>
+
+    <div class="eyebrow fx" style="margin-top:84px">Ideas shared in practice</div>
+    <div class="rows">
+      <a class="row fx" href="https://www.youtube.com/watch?v=UMsb0_iomHo" target="_blank" rel="noopener">
+        <span class="yr">2020</span><span class="ti">Conceptual Understanding in Physical Education</span><span class="bl">Hosted by 4 Generations 4 Education: a grade 5 Invasion Games storyboard built on the Acquire, Connect, Transfer (ACT) model.</span><span class="kind">Watch &rarr;</span>
+      </a>
+      <a class="row fx" href="https://www.faria.org/curriculum-insights/curriculum-insights-issue2#p2" target="_blank" rel="noopener">
+        <span class="yr">Faria</span><span class="ti">The Relationship Between Self-efficacy and Well-Being</span><span class="bl">Published in Faria's Curriculum Insights magazine.</span><span class="kind">Read &rarr;</span>
+      </a>
+      <!-- TODO: add the Recess Duty episode link from Mihai in place of this plain row -->
+      <div class="row fx">
+        <span class="yr">Podcast</span><span class="ti">Recess Duty: Learning That Transfers</span><span class="bl">A conversation about learning that travels beyond the lesson, on the Recess Duty podcast.</span><span class="kind">Episode</span>
+      </div>
+      <a class="row fx" href="https://fitnwitpe.wordpress.com/2022/03/04/fitness-fanatics-and-physical-education-job-alike-presentations-at-toddle-ties-2022/" target="_blank" rel="noopener">
+        <span class="yr">2022</span><span class="ti">Toddle TIES: Fitness Fanatics and PE Job Alike</span><span class="bl">Well-being, self-efficacy and identity-based habits, plus a job-alike on the story your course tells.</span><span class="kind">Sessions &rarr;</span>
+      </a>
+    </div>
+    <div class="proof">
+      <figure class="fx"><div class="ph tilt"><img src="assets/card-webinar.jpg" alt="Webinar poster" data-g="pr" data-gi="0"></div><figcaption>The webinar</figcaption></figure>
+      <figure class="fx d1"><div class="ph tilt"><img src="assets/sketchnote-conceptual-pe.jpg" alt="Session sketchnote by Ania Cholewinska" data-g="pr" data-gi="1"></div><figcaption>The sketchnote</figcaption></figure>
+      <figure class="fx d2"><div class="ph tilt"><img src="assets/card-pe-jobalike.jpg" alt="PE Job Alike session" data-g="pr" data-gi="4"></div><figcaption>PE Job Alike</figcaption></figure>
+      <figure class="fx d3"><div class="ph tilt"><img src="assets/card-fobisia.jpg" alt="FOBISIA professional learning" data-g="pr" data-gi="5"></div><figcaption>FOBISIA workshop</figcaption></figure>
+    </div>
+    <div class="explore-row fx"><button class="explore" data-g="pr" data-gi="0">Explore ideas in practice <i>&rarr;</i></button></div>
+  </div>
+</section>
+
+<section id="outdoor">
+  <div class="strip">
+    <img src="assets/oj-hero.jpg" alt="">
+    <div class="tx fx"><p>02 / Outdoor Joy</p><h2>The outdoors is not the destination.<br>It is the learning lab.</h2></div>
+  </div>
+  <div class="band">
+    <div class="inner">
+      <div class="eyebrow fx">Why Outdoor Joy</div>
+      <h2 class="fx">Experience.<br>Challenge.<br>Reflection.<br>Transfer.</h2>
+      <p class="lede fx d1">Outdoor Joy is not another hiking, SUP or adventure provider. The outdoors is our learning environment. We create real experiences where children and adults discover what they can sustain, what they can do, and who they are becoming. Parents are invited into the experience: not to rescue or instruct, but to model, participate, challenge themselves and grow alongside their children. The adventure ends. What we learn about ourselves and each other travels with us.</p>
+      <p class="chainline fx d2">Air <i>&rarr;</i> Earth <i>&rarr;</i> Water</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap pad">
+      <div class="eyebrow fx">The elements</div>
+      <div class="trio" style="margin-bottom:56px">
+        <a class="el fx" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Air%20experience"><img src="assets/oj-air.jpg" alt=""><div class="tx"><span class="k">Season I</span><h3>Air</h3><p>Height, breath and perspective</p></div></a>
+        <a class="el fx d1" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Earth%20experience"><img src="assets/oj-earth.jpg" alt=""><div class="tx"><span class="k">Season II</span><h3>Earth</h3><p>Trails, mountains and landscape</p></div></a>
+        <a class="el fx d2" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Water%20experience"><img src="assets/oj-water.jpg" alt=""><div class="tx"><span class="k">Season III</span><h3>Water</h3><p>Balance, flow and attention</p></div></a>
+      </div>
+      <div class="eyebrow fx">Who it is for</div>
+      <div class="trio">
+        <div class="el fx"><img src="assets/oj-students.jpg" alt=""><div class="tx"><h3>Students</h3><p>Belonging, character, self-regulation, responsibility</p></div></div>
+        <div class="el fx d1"><img src="assets/oj-companies.jpg" alt=""><div class="tx"><h3>Companies</h3><p>From team building to collective capacity</p></div></div>
+        <div class="el fx d2"><img src="assets/oj-family.jpg" alt=""><div class="tx"><h3>Groups and individuals</h3><p>Mentoring, challenge and reconnection</p></div></div>
+      </div>
+      <div class="proof">
+        <figure class="fx"><div class="ph tilt"><img src="assets/oj-challenge.jpg" alt="Challenge outdoors" data-g="oj" data-gi="4"></div><figcaption>Challenge</figcaption></figure>
+        <figure class="fx d1"><div class="ph tilt"><img src="assets/oj-connection.jpg" alt="Connection outdoors" data-g="oj" data-gi="6"></div><figcaption>Connection</figcaption></figure>
+        <figure class="fx d2"><div class="ph tilt"><img src="assets/oj-reflection.jpg" alt="Reflection outdoors" data-g="oj" data-gi="7"></div><figcaption>Reflection</figcaption></figure>
+        <figure class="fx d3"><div class="ph tilt"><img src="assets/oj-travels.jpg" alt="Learning travelling home" data-g="oj" data-gi="23"></div><figcaption>Transfer</figcaption></figure>
+      </div>
+      <div class="explore-row fx"><button class="explore" data-g="oj" data-gi="0">Explore the Outdoor Joy gallery <i>&rarr;</i></button></div>
+    </div>
+  </div>
+</section>
+
+<section id="embodiment">
+  <div class="strip">
+    <img src="assets/em-attention.jpg" alt="">
+    <div class="tx fx"><p>03 / Embodiment</p><h2>Your body knows things your mind hasn't discovered yet.</h2></div>
+  </div>
+  <div class="sec">
+    <div class="wrap pad">
+      <div class="eyebrow fx">The bridge between Education and Outdoor Joy</div>
+      <h2 class="h2 fx" style="margin-bottom:22px">Move. Feel. Regulate. Adapt.</h2>
+      <p class="lede fx">Not look-what-I-did stories: experiments in capability. Each experience becomes a story, the story meets the neuroscience, and the insight is yours to try. Experience &rarr; Story &rarr; Neuroscience &rarr; Insight &rarr; Try it yourself.</p>
+      <div class="trio" style="margin-top:52px">
+        <figure class="el fx" style="cursor:zoom-in"><img src="assets/em-effort.jpg" alt="Regulating effort on a long run" data-g="em" data-gi="3"><figcaption class="tx"><span class="k">Regulate</span><h3>The run</h3><p>Self-regulation and pacing effort</p></figcaption></figure>
+        <figure class="el fx d1" style="cursor:zoom-in"><img src="assets/em-cold.jpg" alt="Cold water exposure" data-g="em" data-gi="5"><figcaption class="tx"><span class="k">Adapt</span><h3>The cold</h3><p>Stress and adaptation</p></figcaption></figure>
+        <figure class="el fx d2" style="cursor:zoom-in"><img src="assets/em-uncertainty.jpg" alt="Problem-solving on uncertain terrain" data-g="em" data-gi="6"><figcaption class="tx"><span class="k">Attention</span><h3>The mountain</h3><p>Uncertainty and problem-solving</p></figcaption></figure>
+        <figure class="el fx" style="cursor:zoom-in"><img src="assets/em-balance.jpg" alt="Choosing and committing to a movement" data-g="em" data-gi="7"><figcaption class="tx"><span class="k">Commit</span><h3>The balance</h3><p>Attention and commitment</p></figcaption></figure>
+        <figure class="el fx d1" style="cursor:zoom-in"><img src="assets/em-coordination.jpg" alt="Movement practised across generations" data-g="em" data-gi="8"><figcaption class="tx"><span class="k">Practice</span><h3>The generations</h3><p>Deliberate practice across ages</p></figcaption></figure>
+        <figure class="el fx d2" style="cursor:zoom-in"><img src="assets/em-thinking.jpg" alt="Learning through movement together" data-g="em" data-gi="9"><figcaption class="tx"><span class="k">Learn</span><h3>The classroom</h3><p>Embodied learning in PHE</p></figcaption></figure>
+      </div>
+      <div class="explore-row fx"><button class="explore" data-g="em" data-gi="0">Explore the Embodiment gallery <i>&rarr;</i></button></div>
+    </div>
+  </div>
+</section>
+
+<section id="insights" class="sec">
+  <div class="wrap pad">
+    <div class="eyebrow fx">Insights</div>
+    <h2 class="h2 fx" style="margin-bottom:20px">One library. Three worlds.</h2>
+    <p class="lede fx" style="margin-bottom:44px">Apparently separate subjects, actually connected. Filter by the thread you want to follow.</p>
+    <div class="filters fx" role="group" aria-label="Insight filters">
+      <button class="filter on" data-f="all">All</button>
+      <button class="filter" data-f="concepts">Concepts</button>
+      <button class="filter" data-f="transfer">Transfer</button>
+      <button class="filter" data-f="movement">Movement</button>
+      <button class="filter" data-f="outdoors">Outdoors</button>
+      <button class="filter" data-f="selfreg">Self-regulation</button>
+      <button class="filter" data-f="neuro">Neuroscience</button>
+      <button class="filter" data-f="capability">Capability</button>
+    </div>
+    <ul class="ins-list fx">
+      <li data-tags="concepts transfer"><a href="#education"><span class="t">The Trojan Horse: experience opens the door, concepts create meaning</span><span class="wh">Philosophy</span></a></li>
+      <li data-tags="concepts transfer movement"><a href="https://www.youtube.com/watch?v=UMsb0_iomHo" target="_blank" rel="noopener"><span class="t">Conceptual Understanding in Physical Education, the webinar</span><span class="wh">Watch</span></a></li>
+      <li data-tags="capability selfreg"><a href="https://www.faria.org/curriculum-insights/curriculum-insights-issue2#p2" target="_blank" rel="noopener"><span class="t">The Relationship Between Self-efficacy and Well-Being</span><span class="wh">Faria</span></a></li>
+      <li data-tags="concepts transfer"><a href="https://fitnwitpe.wordpress.com/2022/10/27/modern-literacies-module-4-reflections/" target="_blank" rel="noopener"><span class="t">Modern Literacies: what happens when we infuse them into our courses?</span><span class="wh">Blog</span></a></li>
+      <li data-tags="movement capability"><a href="https://fitnwitpe.wordpress.com/2023/05/08/physical-education-today-a-student-perspective/" target="_blank" rel="noopener"><span class="t">Physical Education Today: a student perspective</span><span class="wh">Blog</span></a></li>
+      <li data-tags="outdoors selfreg capability"><a href="#outdoor"><span class="t">The why of Outdoor Joy: the outdoors as a learning lab</span><span class="wh">Outdoor Joy</span></a></li>
+      <li data-tags="neuro selfreg movement"><a href="#embodiment"><span class="t">Experiments in capability: movement, stress and self-regulation</span><span class="wh">Embodiment</span></a></li>
+      <li data-tags="concepts transfer"><a href="https://fitnwitpe.wordpress.com/2020/10/26/conceptual-understanding-in-physical-education-2/" target="_blank" rel="noopener"><span class="t">Conceptual Understanding in PE, with a shared Invasion Games storyboard</span><span class="wh">Blog</span></a></li>
+      <li data-tags="movement concepts"><a href="https://blogs.ibo.org/sharingpyp/2014/12/18/tech-and-pe-in-early-years/" target="_blank" rel="noopener"><span class="t">Tech and PE in Early Years</span><span class="wh">IB blog</span></a></li>
+      <li data-tags="movement neuro"><a href="https://mihaicatrinar.wordpress.com/" target="_blank" rel="noopener"><span class="t">Movement, endurance and recovery stories</span><span class="wh">Blog</span></a></li>
+      <li data-tags="concepts transfer capability"><a href="https://www.conceptualtransfer.com/courses/conceptual-transfer-in-physical-ed-health" target="_blank" rel="noopener"><span class="t">Physical Education and Health Learning that Transfers, the 8-week course</span><span class="wh">Course</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="sec">
+  <div class="wrap pad">
+    <div class="eyebrow fx">About</div>
+    <h2 class="h2 fx" style="margin-bottom:52px">One inquiry. Three laboratories.</h2>
+    <div class="about-grid">
+      <div class="photo fx"><img src="assets/mihai-portrait.jpg" alt="Mihai Catrinar portrait"></div>
+      <div class="about-copy fx d1">
+        <p class="big">Teacher. Coach. Runner. Outdoor mentor. Father.</p>
+        <p>For 18 years, across International Baccalaureate (IB) schools in the Middle East, South-East Asia and Europe, these apparently separate lives kept converging around one question:</p>
+        <p class="q">What makes human beings more capable?</p>
+        <p>Education became the laboratory of the mind and meaning. Outdoor Joy, the laboratory of experience and connection. Embodiment, the laboratory of the body and self-regulation. And running underneath all three: experience, insight, capability, transfer.</p>
+        <div class="cred">
+          <div><b>Today</b>Middle Years Programme (MYP) Assistant Head and Physical and Health Education (PHE) Teacher, Albanian College Tirana; Professional Learning Coach at Education to Change the World, alongside Julie Stern</div>
+          <div><b>Learning</b>Leading Learning, Harvard Business School Online; MA in Technology, Education and Learning, University of Leeds; BA, National University of Physical Education and Sports, Bucharest</div>
+          <div><b>Community</b>Learning that Transfers endorsed educator; over 100 physical educators certified worldwide; IB workshop leader; AUSTSWIM Swimming Instructor</div>
+          <div><b>Languages</b>Romanian, English, French</div>
+        </div>
+      </div>
+    </div>
+    <div class="explore-row fx"><button class="explore" data-recog>Recognition and awards <i>&rarr;</i> open</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="contact">
+  <div class="inner">
+    <div class="eyebrow fx">Work with me</div>
+    <h2 class="fx d1">Which door<br>is <span class="out">yours</span>?</h2>
+    <p class="fx d2">Tell me who you are and what you are trying to build, and we will design the experience together.</p>
+    <div class="paths fx d2">
+      <a class="path" href="mailto:mihaicatrinar@gmail.com?subject=School%20inquiry">Schools</a>
+      <a class="path" href="mailto:mihaicatrinar@gmail.com?subject=Company%20inquiry">Companies</a>
+      <a class="path" href="mailto:mihaicatrinar@gmail.com?subject=Parent%20and%20student%20inquiry">Parents and students</a>
+      <a class="path" href="mailto:mihaicatrinar@gmail.com?subject=Group%20or%20individual%20inquiry">Groups and individuals</a>
+      <a class="path" href="mailto:mihaicatrinar@gmail.com?subject=Speaking%20or%20coaching">Speaking and coaching</a>
+    </div>
+    <div class="chips fx d3">
+      <a class="chip" href="mailto:mihaicatrinar@gmail.com">mihaicatrinar@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/mihaicatrinar" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://twitter.com/fitnwitpe" target="_blank" rel="noopener">Twitter @fitnwitpe</a>
+      <a class="chip" href="https://linktr.ee/mihaicatrinar" target="_blank" rel="noopener">Linktree</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p>&copy; 2026 Mihai Catrinar. Experience &rarr; Insight &rarr; Capability &rarr; Transfer.</p>
+    <p><a href="https://linktr.ee/mihaicatrinar" target="_blank" rel="noopener">All my links</a></p>
+  </div>
+</footer>
+
+
+<div class="gx" id="gx" role="dialog" aria-modal="true" aria-label="Photo gallery">
+  <div class="gx-panel">
+    <header class="gx-head">
+      <span id="gx-world"></span>
+      <span id="gx-count"></span>
+      <button id="gx-close" aria-label="Close gallery">&times;</button>
+    </header>
+    <div class="gx-stage">
+      <button id="gx-prev" aria-label="Previous photo">&larr;</button>
+      <figure>
+        <img id="gx-img" src="" alt="">
+        <figcaption><h3 id="gx-title"></h3><p id="gx-msg"></p></figcaption>
+      </figure>
+      <button id="gx-next" aria-label="Next photo">&rarr;</button>
+    </div>
+    <div class="gx-thumbs" id="gx-thumbs" aria-label="All photos"></div>
+  </div>
+</div>
+
+<div class="recog" id="recog" role="dialog" aria-modal="true" aria-label="Recognition">
+  <div class="recog-panel">
+    <button id="recog-close" aria-label="Close">&times;</button>
+    <p class="recog-k">Recognition</p>
+    <h3>SEK Award for Educational Innovation</h3>
+    <p class="recog-p">Best Work of Educational Innovation and Best Educational Practice in the Early Ages, awarded for pioneering mobile technology in Physical Education from the early years.</p>
+    <img src="assets/card-sek-award.jpg" alt="SEK Innovation Award certificate">
+  </div>
+</div>
+
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var barEl = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    barEl.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveals that come and go with the scroll
+  var items = document.querySelectorAll('.fx');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        e.target.classList.toggle('in', e.isIntersecting);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -4% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  // Hero name split into letters with a per-letter hover wave
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var text = el.textContent;
+    el.textContent = '';
+    text.split('').forEach(function(ch, i){
+      var sp = document.createElement('span');
+      sp.className = 'lt';
+      sp.textContent = ch;
+      if (!reduce) {
+        sp.style.opacity = '0';
+        sp.style.transform = 'translateY(.6em) rotate(6deg)';
+        sp.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1) ' + (0.2 + i * 0.045) + 's, opacity .6s ease ' + (0.2 + i * 0.045) + 's, color .3s ease';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            sp.style.opacity = '1';
+            sp.style.transform = 'none';
+          });
+        });
+        sp.addEventListener('transitionend', function done(){
+          sp.style.transition = '';
+          sp.style.transform = '';
+          sp.removeEventListener('transitionend', done);
+        });
+      }
+      el.appendChild(sp);
+    });
+  });
+
+  // Section headings revealed word by word
+  document.querySelectorAll('.h2, .band h2, .contact h2, .strip h2').forEach(function(h){
+    var delay = 0;
+    Array.from(h.childNodes).forEach(function(node){
+      if (node.nodeType !== 3) return;
+      var frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(function(part){
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var line = document.createElement('span'); line.className = 'wline';
+        var w = document.createElement('span'); w.className = 'wtxt';
+        w.textContent = part;
+        w.style.transitionDelay = (delay * 0.07) + 's';
+        delay++;
+        line.appendChild(w); frag.appendChild(line);
+      });
+      h.replaceChild(frag, node);
+    });
+  });
+
+  // Rolling hover labels
+  document.querySelectorAll('.nav-links a, .btn, .chip, .path, .route').forEach(function(el){
+    var text = el.textContent.trim();
+    if (!text || el.children.length) return;
+    el.innerHTML = '<span class="roll"><span class="r r1">' + text + '</span><span class="r r2" aria-hidden="true">' + text + '</span></span>';
+  });
+
+  // 3D tilt following the mouse
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (canHover && !reduce) {
+    document.querySelectorAll('.tilt').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = 'perspective(800px) rotateY(' + (x * 9) + 'deg) rotateX(' + (-y * 9) + 'deg) scale(1.02)';
+      });
+      el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+    });
+  }
+
+  // Insights filter
+  var filters = document.querySelectorAll('.filter');
+  var insRows = document.querySelectorAll('.ins-list li');
+  filters.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filters.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var f = btn.getAttribute('data-f');
+      insRows.forEach(function(li){
+        var show = f === 'all' || (li.getAttribute('data-tags') || '').split(' ').indexOf(f) !== -1;
+        li.classList.toggle('hide', !show);
+      });
+    });
+  });
+
+  // ---------- Explorable galleries: Mihai's photos, each with its message ----------
+  var G = {
+    edu: { title: 'Education', sub: 'Learning that travels', items: [
+      ['ed-hero.jpg','A shared challenge','Relevant, meaningful experiences get learners through the door.'],
+      ['ed-agency.jpg','Learner agency','Experience opens the door: learners choose how to approach the problem.'],
+      ['ed-concepts.jpg','Making meaning','Inside the experience, concepts help learners make sense of what is happening.'],
+      ['ed-inquiry.jpg','Student inquiry','We change the context and ask: can you use what you understood somewhere else?'],
+      ['ed-capabilities.jpg','Student voice','Capabilities remain long after the unit ends.'],
+      ['ed-reflection.jpg','Six words','Reflection in the learner\u2019s own voice, six words at a time.'],
+      ['ed-pause.jpg','The pause','The pause after experience is where insight begins.'],
+      ['g-ed-explaining.jpg','Explaining understanding','Learners explaining their understanding to each other.'],
+      ['g-ed-authentic.jpg','Authentic thinking','Authentic student thinking helps refine understanding.'],
+      ['g-ed-similar.jpg','Choose the similar one','Acquire, connect, transfer: spotting the similar case.'],
+      ['g-ed-attainment.jpg','Concept attainment','Building the concept from examples, not from definitions.'],
+      ['g-ed-connections.jpg','Conceptual connections','Apparently separate ideas, actually connected.'],
+      ['g-ed-interdisciplinary.jpg','Across disciplines','Inquiry and interdisciplinary thinking.'],
+      ['g-ed-roles.jpg','Team dynamics','Roles, responsibility, decisions and team dynamics.'],
+      ['g-ed-changed.jpg','Changed understanding','Reflection that shows understanding has changed.'],
+      ['g-ed-remain.jpg','What remains','When the unit is over, the capability stays.'],
+      ['g-ed-problem.jpg','A problem worth solving','A problem worth solving gets everyone through the door.'],
+      ['g-ed-language.jpg','Conceptual language','A teaching environment that speaks in concepts.'],
+      ['g-ed-facilitator.jpg','The facilitator','The teacher as facilitator of meaning, not transmitter of content.'],
+      ['g-ed-support.jpg','Supporting learning','Support that builds independence, not dependence.'],
+      ['g-ed-case.jpg','Case study','Professional learning built on real classroom cases.'],
+      ['ed-coaching.jpg','Instructional coaching','Coaching conversations that move practice.'],
+      ['ed-facilitate.jpg','Facilitating','Designing and facilitating professional learning for educators.'],
+      ['ed-consulting.jpg','Beyond lessons','Curriculum design: strong evidence of planning beyond lessons.']
+    ]},
+    oj: { title: 'Outdoor Joy', sub: 'The learning lab', items: [
+      ['oj-hero.jpg','The canyon','The outdoors is not the destination. It is the learning lab.'],
+      ['oj-air.jpg','Air','Height, breath and perspective.'],
+      ['oj-earth.jpg','Earth','Human connection with the landscape.'],
+      ['oj-water.jpg','Water','Balance, flow and attention.'],
+      ['oj-challenge.jpg','Challenge','Real challenge, calibrated to the person in front of you.'],
+      ['oj-challenge-water.jpg','Into the water','Discovering what you can sustain.'],
+      ['oj-connection.jpg','Connection','Trust is built in shared effort.'],
+      ['oj-reflection.jpg','Reflection','The adventure ends. The reflection travels with us.'],
+      ['oj-pause.jpg','Pause','Stillness is part of the experience.'],
+      ['oj-curiosity.jpg','Curiosity','Curiosity grows where the trail ends.'],
+      ['g-oj-nature.jpg','With nature','Curiosity and connection with nature.'],
+      ['oj-students.jpg','Responsibility','Students taking real responsibility.'],
+      ['oj-companies.jpg','Collective capacity','From team building to collective capacity.'],
+      ['g-oj-capacity2.jpg','The team','Trust, connection, belonging, purpose.'],
+      ['oj-family.jpg','Family inside','Parents are invited into the experience.'],
+      ['oj-journey.jpg','The journey','Scale, uncertainty, and a journey together.'],
+      ['g-oj-journeyconn.jpg','Side by side','Journeys connect people.'],
+      ['g-oj-shared.jpg','Shared challenge','Close interaction and candid participation.'],
+      ['g-oj-topshared.jpg','Shared experience','What we learn about each other travels with us.'],
+      ['g-oj-community.jpg','Community','Belonging is built outdoors.'],
+      ['g-oj-agency.jpg','Agency','Challenge creates agency.'],
+      ['g-oj-experience.jpg','Experience','Experience, challenge, reflection, transfer.'],
+      ['oj-together.jpg','Meaning together','We make meaning together.'],
+      ['oj-travels.jpg','It travels','Learning travels with us.']
+    ]},
+    em: { title: 'Embodiment', sub: 'The body knows', items: [
+      ['em-hero.jpg','Uncertainty','A mountain becomes a story about uncertainty.'],
+      ['em-attention.jpg','Attention','Attention and adaptation, embodied.'],
+      ['g-em-attention2.jpg','Reading the terrain','Uncertainty trains attention.'],
+      ['em-effort.jpg','Effort','Regulating effort is a learnable skill.'],
+      ['g-em-effortadapt.jpg','Effort adapts','Push, recover, adapt.'],
+      ['em-cold.jpg','The cold','Cold becomes a story about stress and adaptation.'],
+      ['em-uncertainty.jpg','A problem to solve','Uncertainty is a problem to solve, not a threat.'],
+      ['em-balance.jpg','Commitment','Choosing and committing to a movement.'],
+      ['em-coordination.jpg','Generations','Posture and movement across generations: deliberate practice.'],
+      ['em-thinking.jpg','Embodied thinking','Connection and learning through movement.'],
+      ['g-em-everyday.jpg','Everyday practice','Embodied thinking as everyday practice.'],
+      ['g-em-adapt2.jpg','Adaptation','Attention and adaptation, learned through the body.'],
+      ['g-em-explosive.jpg','Explosive','Explosive movement, at scale.'],
+      ['g-em-trylearn.jpg','Try. Learn.','Movement challenge inside a learning relationship.'],
+      ['g-em-humour.jpg','Humour','Personality and humour belong in training.'],
+      ['em-pace.jpg','Someone else\u2019s pace','Adapting your pace to someone else.']
+    ]},
+    pr: { title: 'In practice', sub: 'Ideas shared with educators', items: [
+      ['card-webinar.jpg','The webinar','Time for Conceptual Understanding, hosted by 4 Generations 4 Education.'],
+      ['sketchnote-conceptual-pe.jpg','The sketchnote','Session sketchnote by Ania Cholewinska (@edu.ideas).'],
+      ['card-article.jpg','Published writing','The Relationship Between Self-efficacy and Well-Being, in Faria Curriculum Insights.'],
+      ['card-recess-duty.jpg','Recess Duty','Learning That Transfers, on the Recess Duty podcast.'],
+      ['card-pe-jobalike.jpg','PE Job Alike','Job-alike sessions for physical educators across the IB community.'],
+      ['card-fobisia.jpg','FOBISIA','Professional learning with the FOBISIA community.'],
+      ['card-ibex.jpg','IB EX','Collaboration across the IB community.'],
+      ['speaking-events.jpg','Selected events','Speaking, from conference stages to virtual rooms.'],
+      ['speaking-workshops.jpg','Workshops','Workshops that make the room move.']
+    ]}
+  };
+
+  var gx = document.getElementById('gx');
+  var gxImg = document.getElementById('gx-img');
+  var gxTitle = document.getElementById('gx-title');
+  var gxMsg = document.getElementById('gx-msg');
+  var gxWorld = document.getElementById('gx-world');
+  var gxCount = document.getElementById('gx-count');
+  var gxThumbs = document.getElementById('gx-thumbs');
+  var gxState = { w: null, i: 0 };
+
+  function gxRenderThumbs(w){
+    gxThumbs.innerHTML = '';
+    G[w].items.forEach(function(it, idx){
+      var b = document.createElement('button');
+      b.className = 'gx-th' + (idx % 5 === 0 ? ' big' : '');
+      b.setAttribute('aria-label', it[1]);
+      var im = document.createElement('img');
+      im.src = 'assets/' + it[0];
+      im.alt = it[1];
+      im.loading = 'lazy';
+      b.appendChild(im);
+      b.addEventListener('click', function(){ gxShow(idx); });
+      gxThumbs.appendChild(b);
+    });
+  }
+  function gxShow(i){
+    var w = gxState.w;
+    var items = G[w].items;
+    gxState.i = (i + items.length) % items.length;
+    var it = items[gxState.i];
+    gxImg.classList.add('swap');
+    setTimeout(function(){
+      gxImg.src = 'assets/' + it[0];
+      gxImg.alt = it[1];
+      gxTitle.textContent = it[1];
+      gxMsg.textContent = it[2];
+      gxCount.textContent = (gxState.i + 1) + ' / ' + items.length;
+      gxImg.onload = function(){ gxImg.classList.remove('swap'); };
+    }, reduce ? 0 : 180);
+    Array.from(gxThumbs.children).forEach(function(el, idx){
+      el.classList.toggle('on', idx === gxState.i);
+    });
+    var active = gxThumbs.children[gxState.i];
+    if (active && active.scrollIntoView) active.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function gxOpen(w, i){
+    gxState.w = w;
+    gxWorld.textContent = G[w].title + ' / ' + G[w].sub;
+    gxRenderThumbs(w);
+    gx.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    gxShow(i || 0);
+  }
+  function gxClose(){
+    gx.classList.remove('open');
+    gxImg.src = '';
+    document.body.style.overflow = '';
+    gxState.w = null;
+  }
+  document.querySelectorAll('[data-g]').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.preventDefault();
+      gxOpen(el.getAttribute('data-g'), parseInt(el.getAttribute('data-gi') || '0', 10));
+    });
+  });
+  document.getElementById('gx-close').addEventListener('click', gxClose);
+  document.getElementById('gx-prev').addEventListener('click', function(){ gxShow(gxState.i - 1); });
+  document.getElementById('gx-next').addEventListener('click', function(){ gxShow(gxState.i + 1); });
+  gx.addEventListener('click', function(e){ if (e.target === gx) gxClose(); });
+  document.addEventListener('keydown', function(e){
+    if (!gx.classList.contains('open')) {
+      if (e.key === 'Escape') { var rec = document.getElementById('recog'); if (rec) rec.classList.remove('open'), document.body.style.overflow = ''; }
+      return;
+    }
+    if (e.key === 'Escape') gxClose();
+    if (e.key === 'ArrowRight') gxShow(gxState.i + 1);
+    if (e.key === 'ArrowLeft') gxShow(gxState.i - 1);
+  });
+
+  // ---------- Recognition overlay (opened on demand, not on the page) ----------
+  var recog = document.getElementById('recog');
+  document.querySelectorAll('[data-recog]').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.preventDefault();
+      recog.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  document.getElementById('recog-close').addEventListener('click', function(){
+    recog.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  recog.addEventListener('click', function(e){ if (e.target === recog) { recog.classList.remove('open'); document.body.style.overflow = ''; } });
+</script>
+
+</body>
+</html>
