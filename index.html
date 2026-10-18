@@ -125,7 +125,7 @@
   .cell p{font-size:13.5px;line-height:1.65;color:var(--text)}
 
   .routes{display:flex;flex-wrap:wrap;gap:14px;margin-top:48px}
-  .route{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:var(--rule);color:var(--ink);padding:12px 22px;text-decoration:none;transition:background .2s ease,color .2s ease}
+  .route{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;border:var(--rule);background:transparent;color:var(--ink);font-family:inherit;padding:12px 22px;text-decoration:none;cursor:pointer;transition:background .2s ease,color .2s ease}
   .route:hover{background:var(--ink);color:#f3f1e7}
 
   /* ---------- Ideas rows ---------- */
@@ -315,7 +315,6 @@
       <li><a href="#embodiment">Embodiment</a></li>
       <li><a href="#insights">Insights</a></li>
       <li><a href="#about">About</a></li>
-      <li><a class="cta" href="#work">Work with me</a></li>
     </ul>
   </div>
 </nav>
@@ -332,7 +331,6 @@
       <p class="opener fx in d1">We know more than ever. <b>But knowing is not enough.</b> We need to transfer what we know. Adapt when the context changes. Regulate ourselves. Connect with others. Move. Experience.</p>
       <p class="chainline fx in d2">Experience <i>&rarr;</i> Insight <i>&rarr;</i> Capability <i>&rarr;</i> Transfer</p>
       <div class="fx in d2" style="display:flex;flex-wrap:wrap;gap:14px">
-        <a href="#work" class="btn btn-primary">Work with me</a>
         <a href="#education" class="btn btn-ghost">Enter the three worlds</a>
       </div>
     </div>
@@ -373,10 +371,10 @@
       <article class="cell fx d3"><div class="ph tilt"><img src="assets/ed-capabilities.jpg" alt="Student voice showing what remains" data-g="edu" data-gi="4"></div><div class="tx"><span class="n">iv.</span><h3>Capabilities remain</h3><p>Long after the unit ends, the capability stays. That is learning worth designing.</p></div></article>
     </div>
     <div class="routes fx">
-      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Instructional%20coaching">Instructional coaching</a>
-      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Professional%20learning">Professional learning</a>
-      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Consulting">Consulting</a>
-      <a class="route" href="mailto:mihaicatrinar@gmail.com?subject=Speaking%20and%20workshops">Speaking and workshops</a>
+      <button class="route" data-door="coaching">Instructional coaching</button>
+      <button class="route" data-door="learning">Professional learning</button>
+      <button class="route" data-door="consulting">Consulting</button>
+      <button class="route" data-door="speaking">Speaking and workshops</button>
     </div>
     <div class="explore-row fx"><button class="explore" data-g="edu" data-gi="0">Explore the Education gallery <i>&rarr;</i></button></div>
 
@@ -423,9 +421,9 @@
     <div class="wrap pad">
       <div class="eyebrow fx">The elements</div>
       <div class="trio" style="margin-bottom:56px">
-        <a class="el fx" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Air%20experience"><img src="assets/oj-air.jpg" alt=""><div class="tx"><span class="k">Season I</span><h3>Air</h3><p>Height, breath and perspective</p></div></a>
-        <a class="el fx d1" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Earth%20experience"><img src="assets/oj-earth.jpg" alt=""><div class="tx"><span class="k">Season II</span><h3>Earth</h3><p>Trails, mountains and landscape</p></div></a>
-        <a class="el fx d2" href="mailto:mihaicatrinar@gmail.com?subject=Outdoor%20Joy%20Water%20experience"><img src="assets/oj-water.jpg" alt=""><div class="tx"><span class="k">Season III</span><h3>Water</h3><p>Balance, flow and attention</p></div></a>
+        <a class="el fx" data-door="air" href="#" role="button"><img src="assets/oj-air.jpg" alt=""><div class="tx"><span class="k">Season I</span><h3>Air</h3><p>Height, breath and perspective</p></div></a>
+        <a class="el fx d1" data-door="earth" href="#" role="button"><img src="assets/oj-earth.jpg" alt=""><div class="tx"><span class="k">Season II</span><h3>Earth</h3><p>Trails, mountains and landscape</p></div></a>
+        <a class="el fx d2" data-door="water" href="#" role="button"><img src="assets/oj-water.jpg" alt=""><div class="tx"><span class="k">Season III</span><h3>Water</h3><p>Balance, flow and attention</p></div></a>
       </div>
       <div class="eyebrow fx">Who it is for</div>
       <div class="trio">
@@ -972,7 +970,13 @@
       companies: ['For companies', ['Outdoor experiences that turn team building into collective capacity', 'Challenge, reflection and transfer, designed for your team', 'From one-day experiences to seasonal programmes'], 'Company inquiry'],
       parents: ['For parents and students', ['Outdoor Joy experiences where parents join, not watch', 'Mentoring for children and teenagers, built on real challenge', 'Growth that travels back home'], 'Parent and student inquiry'],
       groups: ['For groups and individuals', ['Seasonal Air, Earth and Water experiences for small groups', 'Individual mentoring and movement coaching', 'Calibrated challenge, honest reflection'], 'Group or individual inquiry'],
-      speaking: ['Speaking and coaching', ['Keynotes and webinars on learning that transfers', 'PE job-alikes and community sessions worldwide', 'From FOBISIA to IB EX collaborations'], 'Speaking or coaching']
+      speaking: ['Speaking and coaching', ['Keynotes and webinars on learning that transfers', 'PE job-alikes and community sessions worldwide', 'From FOBISIA to IB EX collaborations'], 'Speaking or coaching'],
+      coaching: ['Instructional coaching', ['1:1 coaching that moves classroom practice', 'Professional Learning Coach at Education to Change the World, alongside Julie Stern', 'For teachers and leadership teams'], 'Instructional coaching'],
+      learning: ['Professional learning', ['Workshops and courses, from PE job-alikes to an 8-week course', '100+ physical educators certified worldwide', 'Learning that Transfers endorsed educator and IB workshop leader'], 'Professional learning'],
+      consulting: ['Consulting', ['Curriculum design, from single units to whole programmes', '18 years across IB schools in the Middle East, South-East Asia and Europe', 'MYP Assistant Head, Albanian College Tirana'], 'Consulting'],
+      air: ['Season I: Air', ['Height, breath and perspective', 'Climbing, ridgelines and exposure, safely calibrated', 'For groups, families and individuals'], 'Outdoor Joy Air experience'],
+      earth: ['Season II: Earth', ['Trails, mountains and landscape', 'Long walks, navigation and camp craft', 'For groups, families and individuals'], 'Outdoor Joy Earth experience'],
+      water: ['Season III: Water', ['Balance, flow and attention', 'Paddle, swim and cold water, step by step', 'For groups, families and individuals'], 'Outdoor Joy Water experience']
     };
     function openDoor(key){
       var d = D[key];
@@ -1023,8 +1027,11 @@
       dx.classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.querySelectorAll('.path[data-door]').forEach(function(b){
-      b.addEventListener('click', function(){ openDoor(b.getAttribute('data-door')); });
+    document.querySelectorAll('[data-door]').forEach(function(b){
+      b.addEventListener('click', function(ev){
+        ev.preventDefault();
+        openDoor(b.getAttribute('data-door'));
+      });
     });
     closeBtn.addEventListener('click', closeDoor);
     dx.addEventListener('click', function(e){ if (e.target === dx) closeDoor(); });
